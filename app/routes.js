@@ -39,7 +39,7 @@ module.exports = function(app, passport) {
     //LOGOUT
     ------------------------------------------------*/
     app.get('logout', function(req, res){
-        req.logout();
+        req.logout(); //passport function
         res.redirect('/');
     });
 };
@@ -51,25 +51,5 @@ module.exports = function(app, passport) {
         if(req.isAuthenticated());
         return next;
         //If user is logged in continue, otherwise display the main page
-        res.redirect('/';)
+        res.redirect('/');
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}

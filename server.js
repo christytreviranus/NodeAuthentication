@@ -33,18 +33,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(__dirname + '/public'));
+
 //======================== ROUTE LOCATION ==============================//
 require('./app/routes.js')(app, passport); //use routes in passport and app
 
 //======================== LAUNCH APPLICATION ==============================//
-// app.listen(port);
-// console.log("Your app has started on PORT:  " + port);
+app.listen(port);
+console.log("Your app has started on PORT:  " + port);
 
-// Once logged in to the db through mongoose, log a success message for the db and the app
-configDB.once("open", function() {
-    console.log("Mongoose connected SUCCESSFULLY");
-    // start the server, listen on port
-    app.listen(port, function() {
-        console.log("App running on port " + port);
-    });
-});
